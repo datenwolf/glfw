@@ -365,6 +365,7 @@ struct _GLFWlibrary
 
     struct {
         GLFWmonitorfun  monitor;
+        GLFWjoystickfun joystick;
     } callbacks;
 
     // This is defined in the window API's platform.h
@@ -819,6 +820,13 @@ void _glfwInputError(int error, const char* format, ...);
  *  @ingroup event
  */
 void _glfwInputDrop(_GLFWwindow* window, int count, const char** names);
+
+/*! @brief Notifies shared code of a joystick connection/disconnection event.
+ *  @param[in] joy The joystick that was connected or disconnected.
+ *  @param[in] event One of `GLFW_CONNECTED` or `GLFW_DISCONNECTED`.
+ *  @ingroup event
+ */
+void _glfwInputJoystickChange(int joy, int event);
 
 
 //========================================================================
