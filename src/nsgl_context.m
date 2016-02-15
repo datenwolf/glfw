@@ -238,11 +238,27 @@ void _glfwDestroyContextNSGL(_GLFWwindow* window)
 void _glfwPlatformMakeContextCurrent(_GLFWwindow* window)
 {
     if (window)
+    {
         [window->context.nsgl.object makeCurrentContext];
+        if ([NSOpenGLContext currentContext] == window->context.nsgl.object)
+            _glfwPlatformSetCurrentContext(window);
+        else
+        {
+            _glfwInputError(GLFW_PLATFORM_ERROR,
+                            "NSGL: Failed to make context current");
+        }
+    }
     else
+    {
         [NSOpenGLContext clearCurrentContext];
-
-    _glfwPlatformSetCurrentContext(window);
+        if ([NSOpenGLContext currentContext] == nil)
+            _glfwPlatformSetCurrentContext(NULL);
+        else
+        {
+            _glfwInputError(GLFW_PLATFORM_ERROR,
+                            "NSGL: Failed to clear current context");
+        }
+    }
 }
 
 void _glfwPlatformSwapBuffers(_GLFWwindow* window)
