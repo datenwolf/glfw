@@ -78,6 +78,7 @@ does not find Doxygen, the documentation will not be generated.
    `glfwGetInstanceProcAddress`, `glfwGetPhysicalDevicePresentationSupport` and
    `glfwCreateWindowSurface` for platform independent Vulkan support
  - Added `glfwMaximizeWindow` for maximizing windows
+ - Added `glfwFocusWindow` for setting window z-order and input focus
  - Added `glfwSetWindowSizeLimits` and `glfwSetWindowAspectRatio` for setting
    absolute and relative window size limits
  - Added `glfwGetKeyName` for querying the layout-specific name of printable

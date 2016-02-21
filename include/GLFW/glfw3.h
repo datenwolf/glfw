@@ -2283,6 +2283,25 @@ GLFWAPI void glfwShowWindow(GLFWwindow* window);
  */
 GLFWAPI void glfwHideWindow(GLFWwindow* window);
 
+/*! @brief Brings the specified window to front and sets input focus.
+ *
+ *  This function brings the specified window to front and sets input focus.
+ *
+ *  @param[in] window The window to focus.
+ *
+ *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
+ *  GLFW_PLATFORM_ERROR.
+ *
+ *  @thread_safety This function must only be called from the main thread.
+ *
+ *  @sa @ref window_focus
+ *
+ *  @since Added in version 3.2.
+ *
+ *  @ingroup window
+ */
+GLFWAPI void glfwFocusWindow(GLFWwindow* window);
+
 /*! @brief Returns the monitor that the window uses for full screen mode.
  *
  *  This function returns the handle of the monitor that the specified window is
