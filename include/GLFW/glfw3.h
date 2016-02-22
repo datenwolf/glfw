@@ -2286,6 +2286,15 @@ GLFWAPI void glfwHideWindow(GLFWwindow* window);
 /*! @brief Brings the specified window to front and sets input focus.
  *
  *  This function brings the specified window to front and sets input focus.
+ *  The window should already be visible and not iconified.
+ *
+ *  By default, both windowed and full screen mode windows are focused when
+ *  initially created.  Set the [GLFW_FOCUSED](@ref window_hints_wnd) to disable
+ *  this behavior.
+ *
+ *  __Do not use this function__ to steal focus from other applications unless
+ *  you are certain that is what the user wants.  Focus stealing can be
+ *  extremely disruptive.
  *
  *  @param[in] window The window to focus.
  *
